@@ -1,0 +1,3 @@
+yaml      theme: jekyll-theme-architect
+sass:
+  style: compressed
