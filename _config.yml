@@ -1,3 +1,13 @@
-yaml      theme: jekyll-theme-architect
+# yaml      theme: jekyll-theme-architect
+# sass:
+#   style: compressed
+
+title: My Jekyll Site
+description: A simple description of my site.
+baseurl: "" # Сервер по умолчанию, измените, если ваш сайт не находится в корне
+url: "https://holyhelper1.github.io/DogCalorieCalculator/" # Замените на URL вашего сайта
+
+theme: jekyll-theme-architect
 sass:
   style: compressed
+
