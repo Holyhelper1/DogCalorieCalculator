@@ -1,0 +1,97 @@
+.container {
+  position: fixed;
+  top: calc(1rem + var(--safe-area-top));
+  left: 1rem;
+  z-index: 60;
+}
+
+.trigger {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--chip-border);
+  background: var(--bg-elevated);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-md);
+  color: var(--text-main);
+}
+
+.menu {
+  width: min(320px, calc(100vw - 2rem));
+  margin-top: 0.6rem;
+  padding: 1rem;
+  border-radius: 24px;
+  border: 1px solid var(--chip-border);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(18px);
+  display: grid;
+  gap: 1rem;
+}
+
+.section {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.segment,
+.rowButton {
+  border: 1px solid var(--menu-row-border);
+  background: var(--menu-row-bg);
+  color: var(--text-main);
+}
+
+.segment {
+  min-height: 44px;
+}
+
+.segmentActive,
+.rowButtonActive {
+  background: var(--primary-color);
+  color: var(--text-white);
+}
+
+.stack {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.rowButton {
+  min-height: 52px;
+  padding: 0.8rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.rowButtonStart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.rowButtonMeta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.rowButtonActive .rowButtonMeta {
+  color: rgba(255, 255, 255, 0.72);
+}

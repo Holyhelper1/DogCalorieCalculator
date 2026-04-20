@@ -1,0 +1,23 @@
+.button {
+  min-height: 52px;
+  border: none;
+  padding: 0.95rem 1.1rem;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--primary-color), #6bcf6e);
+  color: var(--text-white);
+  box-shadow: var(--shadow-md);
+}
+
+.primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+}
+
+.secondary {
+  background: var(--soft-accent);
+  color: var(--text-main);
+  border: 1px solid var(--soft-accent-strong);
+}

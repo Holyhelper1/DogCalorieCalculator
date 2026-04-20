@@ -1,0 +1,28 @@
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.input {
+  min-height: 52px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.12);
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.error {
+  font-size: 0.85rem;
+  color: var(--danger-color);
+}
