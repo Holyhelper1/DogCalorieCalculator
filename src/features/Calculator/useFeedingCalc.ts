@@ -77,6 +77,8 @@ export function useFeedingCalc() {
         gender: updated.gender,
         age: updated.age,
         activity: updated.activity,
+        weight: updated.weight,
+        caloriesPerKilogram: updated.caloriesPerKilogram,
         bodyCondition: updated.bodyCondition,
       };
       savePrefs(prefsToSave);
@@ -94,6 +96,8 @@ export function useFeedingCalc() {
       gender: INITIAL_STATE.gender,
       age: INITIAL_STATE.age,
       activity: INITIAL_STATE.activity,
+      // weight: INITIAL_STATE.weight,
+      weight: '',
       bodyCondition: INITIAL_STATE.bodyCondition,
     });
   }
