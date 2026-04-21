@@ -57,6 +57,7 @@ export type CalculatorFormState = {
   activity: ActivityLevelId;
   weight: string;
   caloriesPerKilogram: string;
+  gender: 'male' | 'female';
 };
 
 export type CalculationResult = {
