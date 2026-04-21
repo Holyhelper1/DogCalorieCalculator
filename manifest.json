@@ -1,7 +1,8 @@
 {
   "name": "Dog Feed Calculator",
   "short_name": "Dog Feed Calc",
-  "start_url": "/",
+  "start_url": "/DogCalorieCalculator/",
+  "scope": "/DogCalorieCalculator/",
   "theme_color": "#101a15",
   "background_color": "#0b100d",
   "display": "standalone",
