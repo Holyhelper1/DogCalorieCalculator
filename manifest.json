@@ -1,6 +1,10 @@
 {
   "name": "Dog Feed Calculator",
   "short_name": "Dog Feed Calc",
+  "start_url": "/",
+  "theme_color": "#101a15",
+  "background_color": "#0b100d",
+  "display": "standalone",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -12,8 +16,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#101a15",
-  "background_color": "#0b100d",
-  "display": "standalone"
+  ]
 }
