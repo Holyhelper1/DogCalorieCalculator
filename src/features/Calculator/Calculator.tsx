@@ -12,6 +12,7 @@ import {
   formatWeightRange,
   getActivityLevel,
   getBreedProfile,
+  getCalculationWeight,
   getSuggestedWeightRange,
 } from '../../utils/calculator';
 import { useFeedingCalc } from './useFeedingCalc';
@@ -26,6 +27,11 @@ export function Calculator() {
   const breed = getBreedProfile(form.breed);
   const suggestedWeight = getSuggestedWeightRange(form.breed, form.bodyCondition);
   const selectedActivity = getActivityLevel(form.activity);
+
+  const calculationWeight = isValid
+    ? getCalculationWeight(Number(form.weight), form.breed, form.bodyCondition)
+    : null;
+
   const suggestedWeightText = t('weightRangeValue', {
     value: formatWeightRange(suggestedWeight.min, suggestedWeight.max),
   });
@@ -229,17 +235,31 @@ export function Calculator() {
                 <strong>{suggestedWeightText}</strong>
               </div>
               <div className={styles.detailRow}>
+                <span>{t('weightForCalculation')}</span>
+                <strong>
+                  {result ? t('weightRangeValue', { value: result.calculationWeight.toFixed(1) }) : '—'}
+                </strong>
+              </div>
+              <div className={styles.detailRow}>
                 <span>{t('activityMultiplierLabel')}</span>
                 <strong>{selectedActivity.factor.toFixed(2)}x</strong>
               </div>
               <div className={styles.detailRow}>
                 <span>{t('baseCaloriesLabel')}</span>
-                <strong>{result ? t('kcalPerDay', { value: result.baseCalories.toFixed(0) }) : '0 ккал'}</strong>
+                <strong>
+                  {result ? t('kcalPerDay', { value: result.baseCalories.toFixed(0) }) : '0 ккал'}
+                </strong>
               </div>
             </div>
           </div>
 
-          <p className={styles.note}>{isValid || !submitted ? t('noteDefault') : t('validationMessage')}</p>
+          <p className={styles.note}>
+            {isValid || !submitted ? t('noteDefault') : t('validationMessage')}
+            <br />
+            {form.bodyCondition !== 'ideal' && isValid
+              ? ` ${t('bodyConditionFormulaNote')}`
+              : ''}
+          </p>
         </section>
       </section>
     </>

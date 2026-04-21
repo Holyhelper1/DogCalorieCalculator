@@ -8,10 +8,21 @@ import type {
   BreedProfile,
   CalculationResult,
 } from '../types/calculator';
-import corgiImage from '../assets/Breed/welsh_corgi.jpg';
-import labradorImage from '../assets/Breed/labrador.jpeg';
 
-export const DEFAULT_CALORIES_PER_KILOGRAM = 4270;
+import chihuahuaImage from '../assets/Breed/chihuahua.webp';
+import dachshundImage from '../assets/Breed/dachshund.webp';
+import frenchBulldogImage from '../assets/Breed/french_bulldog.webp';
+import shibaInuImage from '../assets/Breed/shiba_inu.webp';
+import cardiganCorgiImage from '../assets/Breed/cardigan_corgi.webp';
+import germanShepherdImage from '../assets/Breed/german_shepherd.webp';
+import goldenRetrieverImage from '../assets/Breed/golden_retriever.webp';
+import huskyImage from '../assets/Breed/husky.webp';
+import jackRussellImage from '../assets/Breed/jack_russell.webp';
+import labradorImage from '../assets/Breed/labrador.webp';
+import pomeranianImage from '../assets/Breed/pomeranian.webp';
+import corgiImage from '../assets/Breed/welsh_corgi.webp';
+
+export const DEFAULT_CALORIES_PER_KILOGRAM = 4200;
 
 export const AGE_GROUPS: AgeGroup[] = [
   { id: 'puppy_0_3', usesPuppyFormula: true },
@@ -37,16 +48,18 @@ export const ACTIVITY_LEVELS: ActivityLevel[] = [
 ];
 
 export const BREEDS: BreedProfile[] = [
-  { id: 'labrador', minWeight: 25, maxWeight: 36, image: labradorImage, imageType: 'large' },
-  { id: 'german_shepherd', minWeight: 22, maxWeight: 40, image: labradorImage, imageType: 'large' },
-  { id: 'golden_retriever', minWeight: 25, maxWeight: 34, image: labradorImage, imageType: 'large' },
-  { id: 'french_bulldog', minWeight: 9, maxWeight: 14, image: corgiImage, imageType: 'medium' },
+ { id: 'labrador', minWeight: 25, maxWeight: 36, image: labradorImage, imageType: 'large' },
+  { id: 'german_shepherd', minWeight: 22, maxWeight: 40, image: germanShepherdImage, imageType: 'large' },
+  { id: 'golden_retriever', minWeight: 25, maxWeight: 34, image: goldenRetrieverImage, imageType: 'large' },
+  { id: 'french_bulldog', minWeight: 9, maxWeight: 14, image: frenchBulldogImage, imageType: 'medium' },
+  { id: 'shiba_inu', minWeight: 8, maxWeight: 11, image: shibaInuImage, imageType: 'medium' },
+  { id: 'cardigan_corgi', minWeight: 11, maxWeight: 17, image: cardiganCorgiImage, imageType: 'medium' },
   { id: 'corgi', minWeight: 10, maxWeight: 14, image: corgiImage, imageType: 'medium' },
-  { id: 'dachshund', minWeight: 7, maxWeight: 15, image: corgiImage, imageType: 'medium' },
-  { id: 'husky', minWeight: 16, maxWeight: 27, image: labradorImage, imageType: 'large' },
-  { id: 'jack_russell', minWeight: 6, maxWeight: 8, image: corgiImage, imageType: 'small' },
-  { id: 'chihuahua', minWeight: 1.8, maxWeight: 3, image: corgiImage, imageType: 'small' },
-  { id: 'pomeranian', minWeight: 1.8, maxWeight: 3.5, image: corgiImage, imageType: 'small' },
+  { id: 'dachshund', minWeight: 7, maxWeight: 15, image: dachshundImage, imageType: 'medium' },
+  { id: 'husky', minWeight: 16, maxWeight: 27, image: huskyImage, imageType: 'large' },
+  { id: 'jack_russell', minWeight: 6, maxWeight: 8, image: jackRussellImage, imageType: 'small' },
+  { id: 'chihuahua', minWeight: 1.8, maxWeight: 3, image: chihuahuaImage, imageType: 'small' },
+  { id: 'pomeranian', minWeight: 1.8, maxWeight: 3.5, image: pomeranianImage, imageType: 'small' },
 ];
 
 export function getAgeGroup(ageId: AgeGroupId) {
@@ -57,16 +70,13 @@ export function getActivityLevel(activityId: ActivityLevelId) {
   return ACTIVITY_LEVELS.find((level) => level.id === activityId) ?? ACTIVITY_LEVELS[0];
 }
 
-export function getBaseCalories(weight: number, ageGroup: AgeGroup) {
-  if (ageGroup.usesPuppyFormula) {
-    return 2 * (70 * Math.pow(weight, 0.75));
-  }
-
-  return 2 * (30 * weight + 70);
-}
-
 export function getBreedProfile(breedId: BreedId) {
   return BREEDS.find((breed) => breed.id === breedId) ?? BREEDS[0];
+}
+
+export function getBreedIdealWeight(breedId: BreedId) {
+  const breed = getBreedProfile(breedId);
+  return (breed.minWeight + breed.maxWeight) / 2;
 }
 
 export function getSuggestedWeightRange(breedId: BreedId, conditionId: BodyConditionId) {
@@ -100,21 +110,51 @@ function trimWeight(value: number) {
   return Number.isInteger(value) ? String(value) : value.toFixed(1);
 }
 
+export function getCalculationWeight(
+  weight: number,
+  breedId: BreedId,
+  bodyConditionId: BodyConditionId,
+) {
+  const breed = getBreedProfile(breedId);
+
+  if (bodyConditionId === 'ideal') {
+    return weight;
+  }
+
+  if (bodyConditionId === 'underweight') {
+    return Math.max(weight, breed.minWeight);
+  }
+
+  return Math.min(weight, breed.maxWeight);
+}
+
+export function getBaseCalories(weight: number, ageGroup: AgeGroup) {
+  if (ageGroup.usesPuppyFormula) {
+    return 2 * (70 * Math.pow(weight, 0.75));
+  }
+
+  return 2 * (30 * weight + 70);
+}
+
 export function calculateDailyFood(
   weight: number,
   caloriesPerKilogram: number,
+  breedId: BreedId,
+  bodyConditionId: BodyConditionId,
   ageId: AgeGroupId,
   activityId: ActivityLevelId,
 ): CalculationResult {
   const ageGroup = getAgeGroup(ageId);
   const activityLevel = getActivityLevel(activityId);
-  const baseCalories = getBaseCalories(weight, ageGroup);
+  const calculationWeight = getCalculationWeight(weight, breedId, bodyConditionId);
+  const baseCalories = getBaseCalories(calculationWeight, ageGroup);
   const caloricNeeds = baseCalories * activityLevel.factor;
   const foodDensityPer100g = caloriesPerKilogram / 10;
   const dailyFoodGrams = (caloricNeeds * 1000) / caloriesPerKilogram;
 
   return {
     baseCalories,
+    calculationWeight,
     dailyFoodGrams,
     caloricNeeds,
     foodDensityPer100g,

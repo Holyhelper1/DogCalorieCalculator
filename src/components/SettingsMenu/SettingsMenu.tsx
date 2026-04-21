@@ -100,7 +100,7 @@ export function SettingsMenu() {
                     {renderThemeIcon(item)}
                     {t(`theme.${item}`)}
                   </span>
-                  <span className={styles.rowButtonMeta}>{t(`themeHint.${item}`)}</span>
+                  {/* <span className={styles.rowButtonMeta}>{t(`themeHint.${item}`)}</span> */}
                 </button>
               ))}
             </div>

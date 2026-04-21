@@ -47,6 +47,7 @@
 .heroBreedImage {
   width: min(100%, 340px);
   aspect-ratio: 4 / 3;
+  /* object-fit: cover; */
   object-fit: cover;
   object-position: center;
   border-radius: 24px;

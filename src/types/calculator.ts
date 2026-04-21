@@ -20,7 +20,9 @@ export type BreedId =
   | 'german_shepherd'
   | 'golden_retriever'
   | 'french_bulldog'
+  | 'shiba_inu'
   | 'corgi'
+  | 'cardigan_corgi'
   | 'dachshund'
   | 'husky'
   | 'jack_russell'
@@ -59,6 +61,7 @@ export type CalculatorFormState = {
 
 export type CalculationResult = {
   baseCalories: number;
+  calculationWeight: number;
   dailyFoodGrams: number;
   caloricNeeds: number;
   foodDensityPer100g: number;
