@@ -6,18 +6,31 @@ import type {
   CalculationResult,
 } from "../types/calculator";
 
+import akitaInuImage from "../assets/Breed/akita_inu.webp";
+import amstaffImage from "../assets/Breed/amstaff.webp";
+import australianShepherdImage from "../assets/Breed/australian_shepherd.webp";
+import beagleImage from "../assets/Breed/beagle.webp";
+import borderCollieImage from "../assets/Breed/border_collie.webp";
+import boxerImage from "../assets/Breed/boxer.webp";
+import cardiganCorgiImage from "../assets/Breed/cardigan_corgi.webp"; // Проверь путь, если файла нет в папке Breed
 import chihuahuaImage from "../assets/Breed/chihuahua.webp";
+import corgiImage from "../assets/Breed/pembroke_corgi.webp";
 import dachshundImage from "../assets/Breed/dachshund.webp";
+import dalmatianImage from "../assets/Breed/dalmatian.webp";
+import dobermanImage from "../assets/Breed/doberman.webp";
 import frenchBulldogImage from "../assets/Breed/french_bulldog.webp";
-import shibaInuImage from "../assets/Breed/shiba_inu.webp";
-import cardiganCorgiImage from "../assets/Breed/cardigan_corgi.webp";
 import germanShepherdImage from "../assets/Breed/german_shepherd.webp";
 import goldenRetrieverImage from "../assets/Breed/golden_retriever.webp";
 import huskyImage from "../assets/Breed/husky.webp";
 import jackRussellImage from "../assets/Breed/jack_russell.webp";
 import labradorImage from "../assets/Breed/labrador.webp";
 import pomeranianImage from "../assets/Breed/pomeranian.webp";
-import corgiImage from "../assets/Breed/welsh_corgi.webp";
+import pugImage from "../assets/Breed/pug.webp";
+import rottweilerImage from "../assets/Breed/rottweiler.webp";
+import russianGreyhoundImage from "../assets/Breed/russian_greyhound.webp";
+import samoyedImage from "../assets/Breed/samoyed.webp";
+import shibaInuImage from "../assets/Breed/shiba_inu.webp";
+import yorkshireTerrierImage from "../assets/Breed/yorkshire_terrier.webp";
 
 export const DEFAULT_CALORIES_PER_KILOGRAM = 4200;
 
@@ -56,13 +69,121 @@ export interface BreedProfileWithGender {
 
 export const BREEDS: BreedProfileWithGender[] = [
   {
-    id: "labrador",
-    minWeightMale: 29,
-    maxWeightMale: 36,
-    minWeightFemale: 25,
-    maxWeightFemale: 32,
-    image: labradorImage,
+    id: "akita_inu",
+    minWeightMale: 34,
+    maxWeightMale: 54,
+    minWeightFemale: 23,
+    maxWeightFemale: 30,
+    image: akitaInuImage,
     imageType: "large",
+  },
+  {
+    id: "amstaff",
+    minWeightMale: 25,
+    maxWeightMale: 32,
+    minWeightFemale: 18,
+    maxWeightFemale: 25,
+    image: amstaffImage,
+    imageType: "large",
+  },
+  {
+    id: "australian_shepherd",
+    minWeightMale: 23,
+    maxWeightMale: 29,
+    minWeightFemale: 14,
+    maxWeightFemale: 20,
+    image: australianShepherdImage,
+    imageType: "large",
+  },
+  {
+    id: "beagle",
+    minWeightMale: 10,
+    maxWeightMale: 11,
+    minWeightFemale: 9,
+    maxWeightFemale: 10,
+    image: beagleImage,
+    imageType: "medium",
+  },
+  {
+    id: "border_collie",
+    minWeightMale: 14,
+    maxWeightMale: 20,
+    minWeightFemale: 12,
+    maxWeightFemale: 19,
+    image: borderCollieImage,
+    imageType: "medium",
+  },
+  {
+    id: "boxer",
+    minWeightMale: 27,
+    maxWeightMale: 32,
+    minWeightFemale: 23,
+    maxWeightFemale: 27,
+    image: boxerImage,
+    imageType: "large",
+  },
+  {
+    id: "cardigan_corgi",
+    minWeightMale: 13,
+    maxWeightMale: 17,
+    minWeightFemale: 11,
+    maxWeightFemale: 15,
+    image: cardiganCorgiImage,
+    imageType: "medium",
+  },
+  {
+    id: "chihuahua",
+    minWeightMale: 1.8,
+    maxWeightMale: 3,
+    minWeightFemale: 1.5,
+    maxWeightFemale: 2.5,
+    image: chihuahuaImage,
+    imageType: "small",
+  },
+  {
+    id: "corgi",
+    minWeightMale: 12,
+    maxWeightMale: 14,
+    minWeightFemale: 10,
+    maxWeightFemale: 12,
+    image: corgiImage,
+    imageType: "medium",
+  },
+  {
+    id: "dachshund",
+    minWeightMale: 7,
+    maxWeightMale: 15,
+    minWeightFemale: 7,
+    maxWeightFemale: 12,
+    image: dachshundImage,
+    imageType: "medium",
+  },
+  {
+    id: "dalmatian",
+    minWeightMale: 15,
+    maxWeightMale: 32,
+    minWeightFemale: 15,
+    maxWeightFemale: 24,
+    image: dalmatianImage,
+    imageType: "large",
+  },
+  {
+    id: "doberman",
+    minWeightMale: 40,
+    maxWeightMale: 45,
+    minWeightFemale: 32,
+    maxWeightFemale: 35,
+    image: dobermanImage,
+    imageType: "large",
+  },
+  {
+    id: "french_bulldog",
+    minWeightMale: 10,
+    maxWeightMale: 14,
+    minWeightFemale: 9,
+    maxWeightFemale: 13,
+    image: frenchBulldogImage,
+    imageType: "medium",
   },
   {
     id: "german_shepherd",
@@ -92,13 +213,67 @@ export const BREEDS: BreedProfileWithGender[] = [
     imageType: "large",
   },
   {
-    id: "french_bulldog",
-    minWeightMale: 10,
-    maxWeightMale: 14,
-    minWeightFemale: 9,
-    maxWeightFemale: 13,
-    image: frenchBulldogImage,
-    imageType: "medium",
+    id: "jack_russell",
+    minWeightMale: 6,
+    maxWeightMale: 8,
+    minWeightFemale: 5,
+    maxWeightFemale: 7,
+    image: jackRussellImage,
+    imageType: "small",
+  },
+  {
+    id: "labrador",
+    minWeightMale: 29,
+    maxWeightMale: 36,
+    minWeightFemale: 25,
+    maxWeightFemale: 32,
+    image: labradorImage,
+    imageType: "large",
+  },
+  {
+    id: "pomeranian",
+    minWeightMale: 1.8,
+    maxWeightMale: 3.5,
+    minWeightFemale: 1.5,
+    maxWeightFemale: 3,
+    image: pomeranianImage,
+    imageType: "small",
+  },
+  {
+    id: "pug",
+    minWeightMale: 6,
+    maxWeightMale: 9,
+    minWeightFemale: 6,
+    maxWeightFemale: 8,
+    image: pugImage,
+    imageType: "small",
+  },
+  {
+    id: "rottweiler",
+    minWeightMale: 50,
+    maxWeightMale: 60,
+    minWeightFemale: 35,
+    maxWeightFemale: 48,
+    image: rottweilerImage,
+    imageType: "large",
+  },
+  {
+    id: "russian_greyhound",
+    minWeightMale: 34,
+    maxWeightMale: 48,
+    minWeightFemale: 25,
+    maxWeightFemale: 40,
+    image: russianGreyhoundImage,
+    imageType: "large",
+  },
+  {
+    id: "samoyed",
+    minWeightMale: 20,
+    maxWeightMale: 30,
+    minWeightFemale: 16,
+    maxWeightFemale: 20,
+    image: samoyedImage,
+    imageType: "large",
   },
   {
     id: "shiba_inu",
@@ -110,57 +285,12 @@ export const BREEDS: BreedProfileWithGender[] = [
     imageType: "medium",
   },
   {
-    id: "cardigan_corgi",
-    minWeightMale: 13,
-    maxWeightMale: 17,
-    minWeightFemale: 11,
-    maxWeightFemale: 15,
-    image: cardiganCorgiImage,
-    imageType: "medium",
-  },
-  {
-    id: "corgi",
-    minWeightMale: 12,
-    maxWeightMale: 14,
-    minWeightFemale: 10,
-    maxWeightFemale: 12,
-    image: corgiImage,
-    imageType: "medium",
-  },
-  {
-    id: "dachshund",
-    minWeightMale: 7,
-    maxWeightMale: 15,
-    minWeightFemale: 7,
-    maxWeightFemale: 12,
-    image: dachshundImage,
-    imageType: "medium",
-  },
-  {
-    id: "jack_russell",
-    minWeightMale: 6,
-    maxWeightMale: 8,
-    minWeightFemale: 5,
-    maxWeightFemale: 7,
-    image: jackRussellImage,
-    imageType: "small",
-  },
-  {
-    id: "chihuahua",
-    minWeightMale: 1.8,
-    maxWeightMale: 3,
-    minWeightFemale: 1.5,
-    maxWeightFemale: 2.5,
-    image: chihuahuaImage,
-    imageType: "small",
-  },
-  {
-    id: "pomeranian",
-    minWeightMale: 1.8,
-    maxWeightMale: 3.5,
-    minWeightFemale: 1.5,
-    maxWeightFemale: 3,
-    image: pomeranianImage,
+    id: "yorkshire_terrier",
+    minWeightMale: 2,
+    maxWeightMale: 3.2,
+    minWeightFemale: 2,
+    maxWeightFemale: 3.2,
+    image: yorkshireTerrierImage,
     imageType: "small",
   },
 ];
