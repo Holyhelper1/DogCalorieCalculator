@@ -21,6 +21,7 @@ export type BreedId =
   | 'australian_shepherd'
 
   | 'beagle'
+  | 'basenji'
   | 'border_collie'
   | 'boxer'
 
@@ -31,6 +32,7 @@ export type BreedId =
   | 'dachshund'
   | 'dalmatian'
   | 'doberman'
+  | 'east_siberian_laika'
 
   | 'french_bulldog'
   | 'german_shepherd'

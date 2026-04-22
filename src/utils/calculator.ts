@@ -10,6 +10,7 @@ import akitaInuImage from "../assets/Breed/akita_inu.webp";
 import amstaffImage from "../assets/Breed/amstaff.webp";
 import australianShepherdImage from "../assets/Breed/australian_shepherd.webp";
 import beagleImage from "../assets/Breed/beagle.webp";
+import basenjiImage from "../assets/Breed/basenji.webp";
 import borderCollieImage from "../assets/Breed/border_collie.webp";
 import boxerImage from "../assets/Breed/boxer.webp";
 import cardiganCorgiImage from "../assets/Breed/cardigan_corgi.webp"; // Проверь путь, если файла нет в папке Breed
@@ -18,6 +19,7 @@ import corgiImage from "../assets/Breed/pembroke_corgi.webp";
 import dachshundImage from "../assets/Breed/dachshund.webp";
 import dalmatianImage from "../assets/Breed/dalmatian.webp";
 import dobermanImage from "../assets/Breed/doberman.webp";
+import eastSiberianLaikaImage from "../assets/Breed/east_siberian_laika.webp";
 import frenchBulldogImage from "../assets/Breed/french_bulldog.webp";
 import germanShepherdImage from "../assets/Breed/german_shepherd.webp";
 import goldenRetrieverImage from "../assets/Breed/golden_retriever.webp";
@@ -73,7 +75,7 @@ export const BREEDS: BreedProfileWithGender[] = [
     minWeightMale: 34,
     maxWeightMale: 54,
     minWeightFemale: 23,
-    maxWeightFemale: 30,
+    maxWeightFemale: 45,
     image: akitaInuImage,
     imageType: "large",
   },
@@ -98,10 +100,19 @@ export const BREEDS: BreedProfileWithGender[] = [
   {
     id: "beagle",
     minWeightMale: 10,
-    maxWeightMale: 11,
+    maxWeightMale: 14,
     minWeightFemale: 9,
-    maxWeightFemale: 10,
+    maxWeightFemale: 13,
     image: beagleImage,
+    imageType: "medium",
+  },
+  {
+    id: "basenji",
+    minWeightMale: 10,
+    maxWeightMale: 12,
+    minWeightFemale: 9,
+    maxWeightFemale: 11,
+    image: basenjiImage,
     imageType: "medium",
   },
   {
@@ -177,6 +188,15 @@ export const BREEDS: BreedProfileWithGender[] = [
     imageType: "large",
   },
   {
+    id: "east_siberian_laika",
+    minWeightMale: 18,
+    maxWeightMale: 23,
+    minWeightFemale: 18,
+    maxWeightFemale: 23,
+    image: eastSiberianLaikaImage,
+    imageType: "large",
+  },
+  {
     id: "french_bulldog",
     minWeightMale: 10,
     maxWeightMale: 14,
@@ -215,9 +235,9 @@ export const BREEDS: BreedProfileWithGender[] = [
   {
     id: "jack_russell",
     minWeightMale: 6,
-    maxWeightMale: 8,
+    maxWeightMale: 12,
     minWeightFemale: 5,
-    maxWeightFemale: 7,
+    maxWeightFemale: 12,
     image: jackRussellImage,
     imageType: "small",
   },
@@ -278,7 +298,7 @@ export const BREEDS: BreedProfileWithGender[] = [
   {
     id: "shiba_inu",
     minWeightMale: 9,
-    maxWeightMale: 11,
+    maxWeightMale: 11.5,
     minWeightFemale: 7,
     maxWeightFemale: 9,
     image: shibaInuImage,
