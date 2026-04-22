@@ -16,18 +16,40 @@ export type ActivityLevelId =
   | 'puppy_large_9_24'
   | 'nursing';
 export type BreedId =
-  | 'labrador'
+  | 'akita_inu'
+  | 'amstaff'
+  | 'australian_shepherd'
+
+  | 'beagle'
+  | 'basenji'
+  | 'border_collie'
+  | 'boxer'
+
+  | 'cardigan_corgi'
+  | 'chihuahua'
+  | 'corgi'
+
+  | 'dachshund'
+  | 'dalmatian'
+  | 'doberman'
+  | 'east_siberian_laika'
+
+  | 'french_bulldog'
   | 'german_shepherd'
   | 'golden_retriever'
-  | 'french_bulldog'
-  | 'shiba_inu'
-  | 'corgi'
-  | 'cardigan_corgi'
-  | 'dachshund'
+
   | 'husky'
   | 'jack_russell'
-  | 'chihuahua'
-  | 'pomeranian';
+  | 'labrador'
+
+  | 'pomeranian'
+  | 'pug'
+  | 'rottweiler'
+
+  | 'russian_greyhound'
+  | 'samoyed'
+  | 'shiba_inu'
+  | 'yorkshire_terrier';
 export type BodyConditionId = 'underweight' | 'ideal' | 'overweight';
 export type BreedImageId = 'small' | 'medium' | 'large';
 
